@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpurescripts_docs=self.webpackChunkpurescripts_docs||[]).push([[5983],{2934:t=>{t.exports=JSON.parse('{"title":"Crafting","slug":"/category/crafting","permalink":"/category/crafting","navigation":{"previous":{"title":"FAQs","permalink":"/gangsystem/faqs"},"next":{"title":"Introduction","permalink":"/crafting/introduction"}}}')}}]);
