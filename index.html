@@ -22,7 +22,7 @@ body {
     color: var(--text);
     line-height: 1.6;
     min-height: 100vh;
-    padding-top: 80px; /* for fixed header */
+    padding-top: 90px; /* space for fixed header */
 }
 
 /* HEADER & NAVBAR */
@@ -35,10 +35,11 @@ header {
     backdrop-filter: blur(5px);
     border-bottom: 1px solid rgba(255,255,255,0.05);
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* center navbar with logo */
     align-items: center;
     padding: 0.6rem 2rem;
     z-index: 1000;
+    gap: 2rem;
 }
 
 header .logo-container {
@@ -119,6 +120,24 @@ main {
 ul { padding-left: 1.3rem; margin-top: 0.5rem; }
 li { margin-bottom: 0.5rem; }
 
+/* CONTACT BADGES */
+.contact-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    justify-content: flex-start;
+    margin-top: 1rem;
+}
+.contact-badges a img {
+    height: 36px;
+    transition: transform 0.2s, filter 0.2s;
+    filter: brightness(0.85);
+}
+.contact-badges a img:hover {
+    transform: translateY(-2px) scale(1.05);
+    filter: brightness(1);
+}
+
 /* BADGES */
 .github-badges {
     text-align: center;
@@ -187,15 +206,23 @@ footer {
         <p>Available to collaborate on your projects and build everything from scratch. Let's discuss your needs and get it done efficiently.</p>
     </section>
 
-    <!-- Contact Links -->
-    <section class="card links" id="contact">
+    <!-- Contact -->
+    <section class="card" id="contact">
         <h2>🔗 Contact Me</h2>
-        <a href="https://github.com/DooubleTap" target="_blank">GitHub • Projects & Code</a>
-        <a href="https://discord.com/users/76182535192715264" target="_blank">Discord • User</a>
-        <a href="https://discord.cgg/xv6TT4srvt" target="_blank">Discord • Server</a>
+        <div class="contact-badges">
+            <a href="https://github.com/DooubleTap" target="_blank">
+                <img src="https://img.shields.io/badge/github-profile-blue?logo=github" alt="GitHub">
+            </a>
+            <a href="https://discord.com/users/76182535192715264" target="_blank">
+                <img src="https://img.shields.io/badge/discord-Account-green?logo=discord" alt="Discord User">
+            </a>
+            <a href="https://discord.cgg/xv6TT4srvt" target="_blank">
+                <img src="https://img.shields.io/badge/discord-Server-yellow?logo=discord" alt="Discord Server">
+            </a>
+        </div>
     </section>
 
-    <!-- Badges -->
+    <!-- Skills Badges -->
     <div class="github-badges" id="badges">
         <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" alt="CSS">
         <img src="https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white" alt="HTML">
