@@ -1,0 +1,8 @@
+# Node / VSCode (if you edit locally)
+node_modules/
+.vscode/
+.DS_Store
+
+# GitHub Pages build artifacts
+*.log
+*.bak
