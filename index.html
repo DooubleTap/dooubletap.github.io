@@ -25,9 +25,15 @@ body {
         var(--bg);
     color: var(--text);
     min-height: 100vh;
+    transition: background 0.3s;
 }
 
-header { padding: 4.5rem 1rem 3.5rem; max-width: 1000px; margin: auto; position: relative; }
+header {
+    padding: 4.5rem 1rem 3.5rem;
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+}
 
 .top-left {
     position: absolute;
@@ -43,9 +49,11 @@ header { padding: 4.5rem 1rem 3.5rem; max-width: 1000px; margin: auto; position:
     height: 60px;
     border-radius: 50%;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 15px var(--accent-soft);
+    box-shadow: 0 0 18px var(--accent-soft);
     object-fit: cover;
+    transition: transform 0.2s;
 }
+.top-left .logo:hover { transform: scale(1.08); }
 
 .top-left .badge {
     display: inline-flex;
@@ -58,7 +66,12 @@ header { padding: 4.5rem 1rem 3.5rem; max-width: 1000px; margin: auto; position:
     color: var(--muted);
 }
 
-h1 { margin-top: 1.6rem; font-size: 2.8rem; letter-spacing: 1px; text-align: center; }
+h1 {
+    margin-top: 1.6rem;
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+    text-align: center;
+}
 h1 span { color: var(--accent); }
 
 header p {
@@ -75,25 +88,30 @@ main {
     margin: auto;
     padding: 2rem 1rem 4.5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.7rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
 .card {
     background: linear-gradient(180deg, #151b24, #0e131a);
     border-radius: 18px;
     padding: 2rem;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.06);
     position: relative;
     overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 60px rgba(0,0,0,0.45);
 }
 
 .card::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at top right, rgba(76, 194, 255, 0.08), transparent 40%);
+    background: radial-gradient(circle at top right, rgba(76,194,255,0.08), transparent 40%);
     pointer-events: none;
 }
 
@@ -107,19 +125,8 @@ main {
 }
 
 .card p, .card li { color: var(--muted); line-height: 1.7; font-size: 0.97rem; }
-
-ul { padding-left: 1.1rem; }
-li { margin-bottom: 0.4rem; }
-
-.languages { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.8rem; }
-.lang { padding: 0.3rem 0.65rem; border-radius: 6px; background: rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: var(--text); border: 1px solid rgba(255,255,255,0.08); }
-.lang.active { color: var(--success); border-color: rgba(77, 255, 176, 0.4); }
-
-.github-badges {
-    text-align: center;
-    margin-top: 1rem;
-}
-.github-badges img { margin: 0.25rem; height: 28px; }
+ul { padding-left: 1.2rem; }
+li { margin-bottom: 0.5rem; }
 
 .links a {
     display: block;
@@ -128,12 +135,33 @@ li { margin-bottom: 0.4rem; }
     color: var(--text);
     padding: 0.7rem 0.9rem;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255,255,255,0.04);
     transition: background 0.2s ease, transform 0.15s ease;
 }
 .links a:hover { background: var(--accent-soft); transform: translateY(-2px); }
 
-footer { text-align: center; padding: 2.5rem 1rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+.github-badges {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+.github-badges img {
+    margin: 0.25rem;
+    height: 30px;
+    transition: transform 0.2s, filter 0.2s;
+    filter: brightness(0.85);
+}
+.github-badges img:hover {
+    transform: translateY(-2px) scale(1.05);
+    filter: brightness(1);
+}
+
+footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
 </style>
 </head>
 <body>
@@ -146,7 +174,7 @@ footer { text-align: center; padding: 2.5rem 1rem; color: var(--muted); font-siz
 
     <h1><span>Doouble</span>Tap</h1>
     <p>
-        Self0taught eveloper, server architect, and automation enthusiast. I build scalable systems for games, communities, and web platforms. Based in Canada, fluent in French and English.
+        Self-taught developer, server architect, and automation enthusiast. I build scalable systems for games, communities, and web platforms. Based in Canada, fluent in French and English.
     </p>
 </header>
 
@@ -173,18 +201,28 @@ footer { text-align: center; padding: 2.5rem 1rem; color: var(--muted); font-siz
         <a href="https://discord.com/users/76182535192715264" target="_blank">Discord • Contact</a>
     </section>
 </main>
-            
-    <div class="github-badges">
-            <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" alt="CSS">
-            <img src="https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white" alt="HTML">
-            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" alt="JS">
-            <img src="https://img.shields.io/badge/JSON-000?logo=json&logoColor=fff" alt="JSON">
-            <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" alt="TS">
-            <img src="https://img.shields.io/badge/Lua-%232C2D72.svg?logo=lua&logoColor=white" alt="Lua">
-            <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff" alt="MySQL">
-            <img src="https://custom-icon-badges.demolab.com/badge/ChatGPT-74aa9c?logo=openai&logoColor=white">
-        </div>
-    
+
+<!-- Floating badges, centered -->
+<div class="github-badges">
+    <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" alt="CSS">
+    <img src="https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white" alt="HTML">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" alt="JS">
+    <img src="https://img.shields.io/badge/JSON-000?logo=json&logoColor=fff" alt="JSON">
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" alt="TS">
+    <img src="https://img.shields.io/badge/Lua-%232C2D72.svg?logo=lua&logoColor=white" alt="Lua">
+    <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff" alt="MySQL">
+    <img src="https://custom-icon-badges.demolab.com/badge/ChatGPT-74aa9c?logo=openai&logoColor=white">
+    <img src="https://img.shields.io/badge/Claude-D97757?logo=claude&logoColor=fff">
+    <img src="https://img.shields.io/badge/Cloudflare-F38020?logo=Cloudflare&logoColor=white">
+    <img src="https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white">
+    <img src="https://custom-icon-badges.demolab.com/badge/Visual%20Studio%20Code-0078d7.svg?logo=vsc&logoColor=white">
+    <img src="https://img.shields.io/badge/Trello-0052CC?logo=trello&logoColor=fff">
+    <img src="https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=white">
+    <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff">
+    <img src="https://img.shields.io/badge/Docusaurus-3ECC5F?logo=docusaurus&logoColor=fff">
+    <img src="https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white">
+    <img src="https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white">
+</div>
 
 <footer>
     © 2026 DooubleTap • 🇫🇷 & 🇬🇧 • Built with caffeine & clean code
