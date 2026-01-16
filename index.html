@@ -1,296 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DooubleTap • Developer Hub</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DooubleTap • Developer Hub</title>
+<style>
+:root {
+    --bg: #0b0f14;
+    --panel: #141a22;
+    --text: #e6edf3;
+    --muted: #9da7b3;
+    --accent: #4cc2ff;
+    --accent-soft: rgba(76, 194, 255, 0.18);
+    --success: #4dffb0;
+}
 
-    <style>
-        :root {
-            --bg: #0b0f14;
-            --panel: #141a22;
-            --text: #e6edf3;
-            --muted: #9da7b3;
-            --accent: #4cc2ff;
-            --accent-soft: rgba(76, 194, 255, 0.18);
-            --success: #4dffb0;
-        }
+* { box-sizing: border-box; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
 
-        * {
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        }
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at 20% 0%, #0f1a2b, transparent 40%),
+        radial-gradient(circle at 80% 20%, #0c2538, transparent 40%),
+        var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
 
-        body {
-            margin: 0;
-            background:
-                radial-gradient(circle at 20% 0%, #0f1a2b, transparent 40%),
-                radial-gradient(circle at 80% 20%, #0c2538, transparent 40%),
-                var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-        }
+header { padding: 4.5rem 1rem 3.5rem; max-width: 1000px; margin: auto; position: relative; }
 
-        header {
-            padding: 4.5rem 1rem 3.5rem;
-            max-width: 1000px;
-            margin: auto;
-            position: relative;
-        }
+.top-left {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
 
-        /* Top-left container for logo + badge */
-        .top-left {
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
+.top-left .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 15px var(--accent-soft);
+    object-fit: cover;
+}
 
-        .top-left .logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 2px solid var(--accent);
-            box-shadow: 0 0 15px var(--accent-soft);
-            object-fit: cover;
-        }
+.top-left .badge {
+    display: inline-flex;
+    gap: 0.3rem;
+    align-items: center;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--muted);
+}
 
-        .top-left .badge {
-            display: inline-flex;
-            gap: 0.3rem;
-            align-items: center;
-            padding: 0.25rem 0.55rem;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--muted);
-        }
+h1 { margin-top: 1.6rem; font-size: 2.8rem; letter-spacing: 1px; text-align: center; }
+h1 span { color: var(--accent); }
 
-        h1 {
-            margin-top: 1.6rem;
-            font-size: 2.8rem;
-            letter-spacing: 1px;
-            text-align: center;
-        }
+header p {
+    max-width: 720px;
+    margin: 1.2rem auto 0;
+    color: var(--muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
 
-        h1 span {
-            color: var(--accent);
-        }
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem 4.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.7rem;
+}
 
-        header p {
-            max-width: 720px;
-            margin: 1.2rem auto 0;
-            color: var(--muted);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            text-align: center;
-        }
+.card {
+    background: linear-gradient(180deg, #151b24, #0e131a);
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+}
 
-        main {
-            max-width: 1200px;
-            margin: auto;
-            padding: 2rem 1rem 4.5rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.7rem;
-        }
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(76, 194, 255, 0.08), transparent 40%);
+    pointer-events: none;
+}
 
-        .card {
-            background: linear-gradient(180deg, #151b24, #0e131a);
-            border-radius: 18px;
-            padding: 2rem;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            position: relative;
-            overflow: hidden;
-        }
+.card h2 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 1.45rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
 
-        .card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top right, rgba(76, 194, 255, 0.08), transparent 40%);
-            pointer-events: none;
-        }
+.card p, .card li { color: var(--muted); line-height: 1.7; font-size: 0.97rem; }
 
-        .card h2 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.45rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
+ul { padding-left: 1.1rem; }
+li { margin-bottom: 0.4rem; }
 
-        .card p,
-        .card li {
-            color: var(--muted);
-            line-height: 1.7;
-            font-size: 0.97rem;
-        }
+.languages { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.8rem; }
+.lang { padding: 0.3rem 0.65rem; border-radius: 6px; background: rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: var(--text); border: 1px solid rgba(255,255,255,0.08); }
+.lang.active { color: var(--success); border-color: rgba(77, 255, 176, 0.4); }
 
-        ul {
-            padding-left: 1.1rem;
-        }
+.github-badges {
+    text-align: center;
+    margin-top: 1rem;
+}
+.github-badges img { margin: 0.25rem; height: 28px; }
 
-        li {
-            margin-bottom: 0.4rem;
-        }
+.links a {
+    display: block;
+    margin-top: 0.7rem;
+    text-decoration: none;
+    color: var(--text);
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+.links a:hover { background: var(--accent-soft); transform: translateY(-2px); }
 
-        .languages {
-            display: flex;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-            margin-top: 0.8rem;
-        }
-
-        .lang {
-            padding: 0.3rem 0.65rem;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.05);
-            font-size: 0.85rem;
-            color: var(--text);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .lang.active {
-            color: var(--success);
-            border-color: rgba(77, 255, 176, 0.4);
-        }
-
-        .github-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.8rem;
-        }
-
-        .github-tags span {
-            background: rgba(76, 194, 255, 0.12);
-            color: var(--accent);
-            font-size: 0.85rem;
-            padding: 0.35rem 0.7rem;
-            border-radius: 8px;
-            border: 1px solid rgba(76, 194, 255, 0.25);
-        }
-
-        .links a {
-            display: block;
-            margin-top: 0.7rem;
-            text-decoration: none;
-            color: var(--text);
-            padding: 0.7rem 0.9rem;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.04);
-            transition: background 0.2s ease, transform 0.15s ease;
-        }
-
-        .links a:hover {
-            background: var(--accent-soft);
-            transform: translateY(-2px);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem 1rem;
-            color: var(--muted);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-        }
-    </style>
+footer { text-align: center; padding: 2.5rem 1rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="top-left">
-            <img 
-                src="https://r2.fivemanage.com/X8I0LGoLdHY2Wx9DdTrvx/seb-removebg-preview.png"
-                alt="DooubleTap Logo"
-                class="logo"
-            />
-            <div class="badge">🇫🇷 FR • 🇬🇧 EN</div>
-        </div>
+<header>
+    <div class="top-left">
+        <img src="https://r2.fivemanage.com/X8I0LGoLdHY2Wx9DdTrvx/seb-removebg-preview.png" alt="DooubleTap Logo" class="logo" />
+        <div class="badge">🇫🇷 FR • 🇬🇧 EN</div>
+    </div>
 
-        <h1><span>Doouble</span>Tap</h1>
+    <h1><span>Doouble</span>Tap</h1>
+    <p>
+        Full-stack developer, server architect, and automation enthusiast.
+        I build scalable systems for games, communities, and web platforms.
+        Based in Canada, fluent in French and English.
+    </p>
+</header>
 
+<main>
+    <section class="card">
+        <h2>👋 About Me</h2>
         <p>
-            Full-stack developer, server architect, and automation enthusiast.
-            I build scalable systems for games, communities, and web platforms.
-            Based in Canada, fluent in French and English.
+            I’m DooubleTap, a bilingual developer focused on clean architecture,
+            performance, and maintainability. I enjoy building systems that
+            quietly do their job, reliably, day after day.
         </p>
-    </header>
+    </section>
 
-    <main>
-        <section class="card">
-            <h2>👋 About Me</h2>
-            <p>
-                I’m DooubleTap, a bilingual developer focused on clean architecture,
-                performance, and maintainability. I enjoy building systems that
-                quietly do their job, reliably, day after day.
-            </p>
-            <p>
-                I work on hobby and production-grade projects, often bridging
-                the gap between game servers, web services, and automation.
-            </p>
-        </section>
+    <section class="card">
+        <h2>🌍 Languages</h2>
+        <div class="languages">
+            <div class="lang active">🇫🇷 Français (natif)</div>
+            <div class="lang active">🇬🇧 English (fluent)</div>
+        </div>
+    </section>
 
-        <section class="card">
-            <h2>🌍 Languages</h2>
-            <p>
-                Comfortable working, documenting, and supporting users in both
-                languages.
-            </p>
-            <div class="languages">
-                <div class="lang active">🇫🇷 Français (natif)</div>
-                <div class="lang active">🇬🇧 English (fluent)</div>
-            </div>
-        </section>
+    <section class="card">
+        <h2>🧩 What I Build</h2>
+        <ul>
+            <li>FiveM scripts, jobs, economy & admin systems</li>
+            <li>Discord bots (Node.js, TypeScript, Discord.js v14+)</li>
+            <li>Web dashboards & OAuth-based panels</li>
+            <li>Automation tools & backend utilities</li>
+            <li>Open-source and private infrastructure tools</li>
+        </ul>
+    </section>
 
-        <section class="card">
-            <h2>🧩 What I Build</h2>
-            <ul>
-                <li>FiveM scripts, jobs, economy & admin systems</li>
-                <li>Discord bots (Node.js, TypeScript, Discord.js v14+)</li>
-                <li>Web dashboards & OAuth-based panels</li>
-                <li>Automation tools & backend utilities</li>
-                <li>Open-source and private infrastructure tools</li>
-            </ul>
-        </section>
+    <section class="card">
+        <h2>💻 Skills / GitHub Tags</h2>
+        <div class="github-badges">
+            <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" alt="CSS">
+            <img src="https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white" alt="HTML">
+            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" alt="JS">
+            <img src="https://img.shields.io/badge/JSON-000?logo=json&logoColor=fff" alt="JSON">
+            <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" alt="TS">
+            <img src="https://img.shields.io/badge/Lua-%232C2D72.svg?logo=lua&logoColor=white" alt="Lua">
+            <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff" alt="MySQL">
+        </div>
+    </section>
 
-        <section class="card">
-            <h2>🛠 Tech Stack & GitHub Tags</h2>
-            <ul>
-                <li>JavaScript / TypeScript / Lua</li>
-                <li>Node.js, Express, REST APIs</li>
-                <li>SQL (MariaDB / MySQL)</li>
-                <li>FiveM (QB-Core, ox_core ecosystem)</li>
-                <li>Linux & Windows server environments</li>
-            </ul>
-            <div class="github-tags">
-                <span>FiveM</span>
-                <span>QB-Core</span>
-                <span>ox_inventory</span>
-                <span>Node.js</span>
-                <span>TypeScript</span>
-                <span>Discord.js</span>
-                <span>Git</span>
-                <span>MariaDB</span>
-                <span>Web Dashboards</span>
-            </div>
-        </section>
+    <section class="card links">
+        <h2>🔗 Find Me</h2>
+        <a href="https://github.com/DooubleTap" target="_blank">GitHub • Projects & Code</a>
+        <a href="https://discord.com/users/76182535192715264" target="_blank">Discord • Contact</a>
+    </section>
+</main>
 
-        <section class="card links">
-            <h2>🔗 Find Me</h2>
-            <a href="https://github.com/DooubleTap" target="_blank">GitHub • Projects & Code</a>
-            <a href="https://discord.com/users/76182535192715264" target="_blank">Discord • Contact</a>
-        </section>
-    </main>
-
-    <footer>
-        © 2026 DooubleTap • 🇫🇷 & 🇬🇧 • Built with caffeine & clean code
-    </footer>
+<footer>
+    © 2026 DooubleTap • 🇫🇷 & 🇬🇧 • Built with caffeine & clean code
+</footer>
 
 </body>
 </html>
