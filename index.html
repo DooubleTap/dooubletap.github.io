@@ -7,11 +7,11 @@
 <style>
 :root {
     --bg: #0b0f14;
-    --panel: #141a22;
+    --panel: #161b22;
     --text: #e6edf3;
     --muted: #9da7b3;
     --accent: #4cc2ff;
-    --accent-soft: rgba(76, 194, 255, 0.18);
+    --accent-soft: rgba(76, 194, 255, 0.15);
     --success: #4dffb0;
 }
 
@@ -19,17 +19,16 @@
 
 body {
     margin: 0;
-    background:
-        radial-gradient(circle at 20% 0%, #0f1a2b, transparent 40%),
-        radial-gradient(circle at 80% 20%, #0c2538, transparent 40%),
-        var(--bg);
+    background: radial-gradient(circle at 20% 0%, #0f1a2b, transparent 40%), 
+                radial-gradient(circle at 80% 20%, #0c2538, transparent 40%), 
+                var(--bg);
     color: var(--text);
     min-height: 100vh;
-    transition: background 0.3s;
 }
 
+/* HEADER */
 header {
-    padding: 4.5rem 1rem 3.5rem;
+    padding: 4.5rem 1rem 3rem;
     max-width: 1000px;
     margin: auto;
     position: relative;
@@ -45,27 +44,24 @@ header {
 }
 
 .top-left .logo {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 18px var(--accent-soft);
     object-fit: cover;
-    transition: transform 0.2s;
+    transition: transform 0.25s;
 }
 .top-left .logo:hover { transform: scale(1.08); }
 
 .top-left .badge {
-    display: inline-flex;
-    gap: 0.3rem;
-    align-items: center;
-    padding: 0.25rem 0.55rem;
-    border-radius: 999px;
     font-size: 0.75rem;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
     color: var(--muted);
 }
 
+/* TITLE */
 h1 {
     margin-top: 1.6rem;
     font-size: 2.8rem;
@@ -83,6 +79,7 @@ header p {
     text-align: center;
 }
 
+/* MAIN GRID */
 main {
     max-width: 1200px;
     margin: auto;
@@ -92,57 +89,53 @@ main {
     gap: 2rem;
 }
 
+/* CARDS */
 .card {
-    background: linear-gradient(180deg, #151b24, #0e131a);
-    border-radius: 18px;
+    background: linear-gradient(145deg, #161b22, #0f131c);
+    border-radius: 24px;
     padding: 2rem;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.07);
     position: relative;
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+    transition: transform 0.25s;
 }
 
-.card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top right, rgba(76,194,255,0.08), transparent 40%);
-    pointer-events: none;
-}
+.card:hover { transform: translateY(-3px); }
 
 .card h2 {
     margin-top: 0;
-    color: var(--accent);
     font-size: 1.45rem;
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent-soft);
     display: flex;
     align-items: center;
     gap: 0.4rem;
 }
 
-.card p, .card li { color: var(--muted); line-height: 1.7; font-size: 0.97rem; }
+.card p, .card li { color: var(--muted); font-size: 1rem; line-height: 1.65; }
 ul { padding-left: 1.2rem; }
 li { margin-bottom: 0.5rem; }
 
+/* LINKS */
 .links a {
     display: block;
     margin-top: 0.7rem;
     text-decoration: none;
     color: var(--text);
-    padding: 0.7rem 0.9rem;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.04);
-    transition: background 0.2s ease, transform 0.15s ease;
+    padding: 0.65rem 1rem;
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(76,194,255,0.06), rgba(76,194,255,0.02));
+    transition: all 0.2s ease;
 }
-.links a:hover { background: var(--accent-soft); transform: translateY(-2px); }
+.links a:hover {
+    background: linear-gradient(145deg, rgba(76,194,255,0.15), rgba(76,194,255,0.05));
+    transform: translateY(-2px);
+}
 
+/* BADGES */
 .github-badges {
     text-align: center;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
 }
 .github-badges img {
     margin: 0.25rem;
@@ -155,6 +148,7 @@ li { margin-bottom: 0.5rem; }
     filter: brightness(1);
 }
 
+/* FOOTER */
 footer {
     text-align: center;
     padding: 2.5rem 1rem;
@@ -162,6 +156,7 @@ footer {
     font-size: 0.9rem;
     border-top: 1px solid rgba(255,255,255,0.06);
 }
+
 </style>
 </head>
 <body>
@@ -202,7 +197,7 @@ footer {
     </section>
 </main>
 
-<!-- Floating badges, centered -->
+<!-- Badges -->
 <div class="github-badges">
     <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" alt="CSS">
     <img src="https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white" alt="HTML">
