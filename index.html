@@ -13,7 +13,6 @@
     --accent: #4cc2ff;
     --accent-soft: rgba(76,194,255,0.15);
     --hover: rgba(76,194,255,0.08);
-    --success: #4dffb0;
 }
 
 * { box-sizing: border-box; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; margin:0; padding:0; }
@@ -23,48 +22,76 @@ body {
     color: var(--text);
     line-height: 1.6;
     min-height: 100vh;
-    padding: 2rem;
+    padding-top: 80px; /* for fixed header */
 }
 
+/* HEADER & NAVBAR */
 header {
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(11,15,20,0.95);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 2rem;
+    z-index: 1000;
 }
 
-header .logo {
-    width: 100px;
-    height: 100px;
+header .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+header .logo-container img {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    border: 3px solid var(--accent);
-    box-shadow: 0 0 20px var(--accent-soft);
+    border: 2px solid var(--accent);
     object-fit: cover;
-    transition: transform 0.2s;
 }
-header .logo:hover { transform: scale(1.05); }
 
-header h1 {
-    margin-top: 1rem;
-    font-size: 2.8rem;
-}
-header h1 span { color: var(--accent); }
-
-header p {
-    margin-top: 0.8rem;
+header .badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.05);
     color: var(--muted);
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+}
+nav a:hover {
+    background: var(--hover);
+    transform: translateY(-2px);
+}
+
+/* MAIN CONTENT */
 main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
-    margin-bottom: 3rem;
 }
 
+/* CARDS / SECTIONS */
 .card {
     background: var(--card-bg);
     border-radius: 20px;
@@ -92,21 +119,7 @@ main {
 ul { padding-left: 1.3rem; margin-top: 0.5rem; }
 li { margin-bottom: 0.5rem; }
 
-.links a {
-    display: block;
-    text-decoration: none;
-    color: var(--text);
-    margin-top: 0.6rem;
-    padding: 0.7rem 1rem;
-    border-radius: 12px;
-    background: rgba(76,194,255,0.05);
-    transition: all 0.2s ease;
-}
-.links a:hover {
-    background: var(--hover);
-    transform: translateY(-2px);
-}
-
+/* BADGES */
 .github-badges {
     text-align: center;
     margin-top: 2rem;
@@ -122,6 +135,7 @@ li { margin-bottom: 0.5rem; }
     filter: brightness(1);
 }
 
+/* FOOTER */
 footer {
     text-align: center;
     color: var(--muted);
@@ -129,61 +143,79 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.06);
     padding: 2rem 1rem;
 }
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    header { flex-direction: column; gap: 0.6rem; padding: 1rem; }
+    nav { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+}
 </style>
 </head>
 <body>
 
 <header>
-    <img class="logo" src="https://r2.fivemanage.com/X8I0LGoLdHY2Wx9DdTrvx/seb-removebg-preview.png" alt="DooubleTap Logo">
-    <h1><span>Doouble</span>Tap</h1>
-    <p>Self-taught developer, server architect, and automation enthusiast. I build scalable systems for games, communities, and web platforms. Based in Canada, fluent in French and English.</p>
+    <div class="logo-container">
+        <img src="https://r2.fivemanage.com/X8I0LGoLdHY2Wx9DdTrvx/seb-removebg-preview.png" alt="DooubleTap Logo">
+        <div class="badge">FR • EN</div>
+    </div>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#badges">Skills</a>
+    </nav>
 </header>
 
 <main>
+    <!-- About Me -->
     <section class="card" id="about">
         <h2>👋 About Me</h2>
-        <p>I’m DooubleTap, a bilingual developer focused on clean architecture, performance, and maintainability. I enjoy building systems that quietly do their job, reliably, day after day.</p>
+        <p>I’m DooubleTap, a bilingual developer focused on clean architecture, performance, and maintainability. I enjoy building systems that quietly do their job, reliably, day after day. I help communities, game servers, and projects grow with professional-grade tools.</p>
     </section>
 
-    <section class="card" id="build">
-        <h2>🧩 What I Build</h2>
+    <!-- Services -->
+    <section class="card" id="services">
+        <h2>💼 Services & Offers</h2>
         <ul>
-            <li>FiveM scripts, jobs, economy & admin systems</li>
-            <li>Discord bots (Node.js, TypeScript, Discord.js v14+)</li>
-            <li>Web dashboards & OAuth-based panels</li>
-            <li>Automation tools & backend utilities</li>
-            <li>Open-source and private infrastructure tools</li>
+            <li>Custom FiveM communities setup & automation</li>
+            <li>Discord roles, whitelist, and permission management</li>
+            <li>Paid/free Tebex integration for servers</li>
+            <li>Scripts connected to third-party APIs (Top-Server.net, etc.)</li>
+            <li>Full-stack services for server, web panel, and bot systems</li>
+            <li>Pricing and packages discussed directly on Discord</li>
         </ul>
+        <p>Available to collaborate on your projects and build everything from scratch. Let's discuss your needs and get it done efficiently.</p>
     </section>
 
-    <section class="card links" id="links">
-        <h2>🔗 Find Me</h2>
+    <!-- Contact Links -->
+    <section class="card links" id="contact">
+        <h2>🔗 Contact Me</h2>
         <a href="https://github.com/DooubleTap" target="_blank">GitHub • Projects & Code</a>
         <a href="https://discord.com/users/76182535192715264" target="_blank">Discord • User</a>
         <a href="https://discord.cgg/xv6TT4srvt" target="_blank">Discord • Server</a>
     </section>
-</main>
 
-<div class="github-badges" id="badges">
-    <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" alt="CSS">
-    <img src="https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white" alt="HTML">
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" alt="JS">
-    <img src="https://img.shields.io/badge/JSON-000?logo=json&logoColor=fff" alt="JSON">
-    <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" alt="TS">
-    <img src="https://img.shields.io/badge/Lua-%232C2D72.svg?logo=lua&logoColor=white" alt="Lua">
-    <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff" alt="MySQL">
-    <img src="https://custom-icon-badges.demolab.com/badge/ChatGPT-74aa9c?logo=openai&logoColor=white">
-    <img src="https://img.shields.io/badge/Claude-D97757?logo=claude&logoColor=fff">
-    <img src="https://img.shields.io/badge/Cloudflare-F38020?logo=Cloudflare&logoColor=white">
-    <img src="https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white">
-    <img src="https://custom-icon-badges.demolab.com/badge/Visual%20Studio%20Code-0078d7.svg?logo=vsc&logoColor=white">
-    <img src="https://img.shields.io/badge/Trello-0052CC?logo=trello&logoColor=fff">
-    <img src="https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=white">
-    <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff">
-    <img src="https://img.shields.io/badge/Docusaurus-3ECC5F?logo=docusaurus&logoColor=fff">
-    <img src="https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white">
-    <img src="https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white">
-</div>
+    <!-- Badges -->
+    <div class="github-badges" id="badges">
+        <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" alt="CSS">
+        <img src="https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white" alt="HTML">
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" alt="JS">
+        <img src="https://img.shields.io/badge/JSON-000?logo=json&logoColor=fff" alt="JSON">
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" alt="TS">
+        <img src="https://img.shields.io/badge/Lua-%232C2D72.svg?logo=lua&logoColor=white" alt="Lua">
+        <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff" alt="MySQL">
+        <img src="https://custom-icon-badges.demolab.com/badge/ChatGPT-74aa9c?logo=openai&logoColor=white">
+        <img src="https://img.shields.io/badge/Claude-D97757?logo=claude&logoColor=fff">
+        <img src="https://img.shields.io/badge/Cloudflare-F38020?logo=Cloudflare&logoColor=white">
+        <img src="https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white">
+        <img src="https://custom-icon-badges.demolab.com/badge/Visual%20Studio%20Code-0078d7.svg?logo=vsc&logoColor=white">
+        <img src="https://img.shields.io/badge/Trello-0052CC?logo=trello&logoColor=fff">
+        <img src="https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=white">
+        <img src="https://img.shields.io/badge/Docusaurus-3ECC5F?logo=docusaurus&logoColor=fff">
+        <img src="https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white">
+        <img src="https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white">
+    </div>
+</main>
 
 <footer>
     © 2026 DooubleTap • 🇫🇷 & 🇬🇧 • Built with caffeine & clean code
