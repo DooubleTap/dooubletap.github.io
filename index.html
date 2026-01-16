@@ -33,35 +33,46 @@
 
         header {
             padding: 4.5rem 1rem 3.5rem;
-            text-align: center;
+            max-width: 1000px;
+            margin: auto;
             position: relative;
         }
 
-        .badge {
-            display: inline-flex;
-            gap: 0.5rem;
+        /* Top-left container for logo + badge */
+        .top-left {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            display: flex;
             align-items: center;
-            padding: 0.35rem 0.7rem;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--muted);
-            margin-bottom: 1.5rem;
+            gap: 0.6rem;
         }
 
-        .logo {
-            width: 150px;
-            height: 150px;
+        .top-left .logo {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 40px var(--accent-soft);
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 15px var(--accent-soft);
             object-fit: cover;
+        }
+
+        .top-left .badge {
+            display: inline-flex;
+            gap: 0.3rem;
+            align-items: center;
+            padding: 0.25rem 0.55rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--muted);
         }
 
         h1 {
             margin-top: 1.6rem;
             font-size: 2.8rem;
             letter-spacing: 1px;
+            text-align: center;
         }
 
         h1 span {
@@ -74,6 +85,7 @@
             color: var(--muted);
             font-size: 1.1rem;
             line-height: 1.6;
+            text-align: center;
         }
 
         main {
@@ -99,11 +111,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(
-                circle at top right,
-                rgba(76, 194, 255, 0.08),
-                transparent 40%
-            );
+            background: radial-gradient(circle at top right, rgba(76, 194, 255, 0.08), transparent 40%);
             pointer-events: none;
         }
 
@@ -152,6 +160,22 @@
             border-color: rgba(77, 255, 176, 0.4);
         }
 
+        .github-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .github-tags span {
+            background: rgba(76, 194, 255, 0.12);
+            color: var(--accent);
+            font-size: 0.85rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 8px;
+            border: 1px solid rgba(76, 194, 255, 0.25);
+        }
+
         .links a {
             display: block;
             margin-top: 0.7rem;
@@ -180,15 +204,14 @@
 <body>
 
     <header>
-        <div class="badge">
-            🇫🇷 Français • 🇬🇧 English
+        <div class="top-left">
+            <img 
+                src="https://r2.fivemanage.com/X8I0LGoLdHY2Wx9DdTrvx/seb-removebg-preview.png"
+                alt="DooubleTap Logo"
+                class="logo"
+            />
+            <div class="badge">🇫🇷 FR • 🇬🇧 EN</div>
         </div>
-
-        <img 
-            src="https://r2.fivemanage.com/X8I0LGoLdHY2Wx9DdTrvx/seb-removebg-preview.png"
-            alt="DooubleTap Logo"
-            class="logo"
-        />
 
         <h1><span>Doouble</span>Tap</h1>
 
@@ -208,7 +231,7 @@
                 quietly do their job, reliably, day after day.
             </p>
             <p>
-                I work on both hobby and production-grade projects, often bridging
+                I work on hobby and production-grade projects, often bridging
                 the gap between game servers, web services, and automation.
             </p>
         </section>
@@ -237,7 +260,7 @@
         </section>
 
         <section class="card">
-            <h2>🛠 Tech Stack</h2>
+            <h2>🛠 Tech Stack & GitHub Tags</h2>
             <ul>
                 <li>JavaScript / TypeScript / Lua</li>
                 <li>Node.js, Express, REST APIs</li>
@@ -245,6 +268,17 @@
                 <li>FiveM (QB-Core, ox_core ecosystem)</li>
                 <li>Linux & Windows server environments</li>
             </ul>
+            <div class="github-tags">
+                <span>FiveM</span>
+                <span>QB-Core</span>
+                <span>ox_inventory</span>
+                <span>Node.js</span>
+                <span>TypeScript</span>
+                <span>Discord.js</span>
+                <span>Git</span>
+                <span>MariaDB</span>
+                <span>Web Dashboards</span>
+            </div>
         </section>
 
         <section class="card links">
