@@ -238,7 +238,7 @@ footer {
         </nav>
     </div>
 
-    <button id="langToggle" class="lang-switch">EN</button>
+    <button id="langToggle" class="lang-switch">Translate in English</button>
 </header>
 
 <main>
@@ -345,7 +345,7 @@ function applyLang(lang) {
         keys.forEach(k => value = value[k]);
         el.textContent = value;
     });
-    document.getElementById("langToggle").textContent = lang === "fr" ? "EN" : "FR";
+    document.getElementById("langToggle").textContent = lang === "fr" ? "Translate in English" : "Traduire en Français";
 }
 
 document.getElementById("langToggle").onclick = () => {
