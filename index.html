@@ -1,279 +1,269 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DooubleTap • Hub Développeur</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DooubleTap • Hub Développeur</title>
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --card-bg: rgba(24, 28, 34, 0.9);
+        --text: #e6edf3;
+        --muted: #9da7b3;
+        --accent: #4cc2ff;
+        --accent-soft: rgba(76, 194, 255, 0.15);
+        --hover: rgba(76, 194, 255, 0.08);
+      }
 
-<style>
-:root {
-    --bg: #0b0f14;
-    --card-bg: rgba(24,28,34,0.9);
-    --text: #e6edf3;
-    --muted: #9da7b3;
-    --accent: #4cc2ff;
-    --accent-soft: rgba(76,194,255,0.15);
-    --hover: rgba(76,194,255,0.08);
-}
+      * {
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
 
-* {
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+      body {
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        min-height: 100vh;
+        padding-top: 90px;
+      }
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
-    padding-top: 90px;
-}
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(11, 15, 20, 0.95);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 0.6rem 2rem;
+        z-index: 1000;
+      }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(11,15,20,0.95);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    padding: 0.6rem 2rem;
-    z-index: 1000;
-}
+      .header-spacer {
+        /* même largeur que le bouton langue pour équilibrer */
+      }
 
-.header-spacer {
-    /* même largeur que le bouton langue pour équilibrer */
-}
+      .header-center {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
 
-.header-center {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
+      .lang-switch {
+        justify-self: end;
+      }
 
-.lang-switch {
-    justify-self: end;
-}
+      header .left {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
 
-header .left {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
+      .logo-container img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        object-fit: cover;
+      }
 
-.logo-container img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid var(--accent);
-    object-fit: cover;
-}
+      .badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--muted);
+      }
 
-.badge {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.6rem;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.05);
-    color: var(--muted);
-}
+      nav {
+        display: flex;
+        gap: 1rem;
+      }
 
-nav {
-    display: flex;
-    gap: 1rem;
-}
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: background 0.2s, transform 0.15s;
+      }
 
-nav a {
-    text-decoration: none;
-    color: var(--text);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: background 0.2s, transform 0.15s;
-}
+      nav a:hover {
+        background: var(--hover);
+        transform: translateY(-2px);
+      }
 
-nav a:hover {
-    background: var(--hover);
-    transform: translateY(-2px);
-}
+      .lang-switch {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.2s;
+      }
 
-.lang-switch {
-    background: var(--accent-soft);
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 0.45rem 0.9rem;
-    border-radius: 999px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.2s;
-}
+      .lang-switch:hover {
+        background: var(--hover);
+      }
 
-.lang-switch:hover {
-    background: var(--hover);
-}
-
-main {
-    max-width: 900px;
-    margin: auto;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.card {
-    background: var(--card-bg);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(255,255,255,0.05);
-    backdrop-filter: blur(6px);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-}
-
-.card h2 {
-    color: var(--accent);
-    margin-bottom: 0.8rem;
-}
-
-.card p,
-.card li {
-    color: var(--muted);
-}
-
-ul {
-    padding-left: 1.3rem;
-    margin-top: 0.6rem;
-}
-
-.contact-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    margin-top: 1rem;
-}
-
-.contact-badges img {
-    height: 30px;
-    filter: brightness(0.85);
-    transition: transform 0.2s, filter 0.2s;
-}
-
-.contact-badges img:hover {
-    transform: translateY(-2px) scale(1.05);
-    filter: brightness(1);
-}
-
-.github-badges {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.github-badges img {
-    margin: 0.25rem;
-    height: 28px;
-    filter: brightness(0.85);
-    transition: transform 0.2s, filter 0.2s;
-}
-
-.github-badges img:hover {
-    transform: translateY(-2px) scale(1.05);
-    filter: brightness(1);
-}
-
-footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 2rem 1rem;
-}
-
-@media (max-width: 700px) {
-    header {
+      main {
+        max-width: 900px;
+        margin: auto;
+        padding: 2rem 1rem;
+        display: flex;
         flex-direction: column;
-        gap: 0.8rem;
-        padding: 1rem;
-    }
+        gap: 2rem;
+      }
 
-    nav {
+      .card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(6px);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      }
+
+      .card h2 {
+        color: var(--accent);
+        margin-bottom: 0.8rem;
+      }
+
+      .card p,
+      .card li {
+        color: var(--muted);
+      }
+
+      ul {
+        padding-left: 1.3rem;
+        margin-top: 0.6rem;
+      }
+
+      .contact-badges {
+        display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-</style>
-</head>
+        gap: 0.7rem;
+        margin-top: 1rem;
+      }
 
-<body>
+      .contact-badges img {
+        height: 30px;
+        filter: brightness(0.85);
+        transition: transform 0.2s, filter 0.2s;
+      }
 
-<header>
-    <div class="header-spacer"></div>
+      .contact-badges img:hover {
+        transform: translateY(-2px) scale(1.05);
+        filter: brightness(1);
+      }
 
-    <div class="header-center">
+      .github-badges {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .github-badges img {
+        margin: 0.25rem;
+        height: 28px;
+        filter: brightness(0.85);
+        transition: transform 0.2s, filter 0.2s;
+      }
+
+      .github-badges img:hover {
+        transform: translateY(-2px) scale(1.05);
+        filter: brightness(1);
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 2rem 1rem;
+      }
+
+      @media (max-width: 700px) {
+        header {
+          flex-direction: column;
+          gap: 0.8rem;
+          padding: 1rem;
+        }
+
+        nav {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-spacer"></div>
+      <div class="header-center">
         <div class="logo-container">
-            <img src="https://r2.fivemanage.com/X8I0LGoLdHY2Wx9DdTrvx/seb-removebg-preview.png" alt="Logo">
-            <div class="badge">FR / EN</div>
+          <img src="https://r2.fivemanage.com/X8I0LGoLdHY2Wx9DdTrvx/seb-removebg-preview.png" alt="Logo">
+          <div class="badge">FR / EN</div>
         </div>
-
         <nav>
-            <a href="#about" data-i18n="nav.about"></a>
-            <a href="#services" data-i18n="nav.services"></a>
-            <a href="#contact" data-i18n="nav.contact"></a>
-            <a href="#skills" data-i18n="nav.skills"></a>
-            <a href="https://discord.gg/bPmQfJA2tp">Discord</a>
+          <a href="#about" data-i18n="nav.about"></a>
+          <a href="#services" data-i18n="nav.services"></a>
+          <a href="#contact" data-i18n="nav.contact"></a>
+          <a href="#skills" data-i18n="nav.skills"></a>
+          <a href="https://discord.gg/bPmQfJA2tp">Discord</a>
         </nav>
-    </div>
-
-    <button id="langToggle" class="lang-switch">EN</button>
-</header>
-
-<main>
-    <section class="card" id="about">
+      </div>
+      <button id="langToggle" class="lang-switch">EN</button>
+    </header>
+    <main>
+      <section class="card" id="about">
         <h2 data-i18n="about.title"></h2>
         <p data-i18n="about.p1"></p>
-    </section>
-
-    <section class="card" id="services">
+      </section>
+      <section class="card" id="services">
         <h2 data-i18n="services.title"></h2>
         <ul>
-            <li data-i18n="services.li1"></li>
-            <li data-i18n="services.li2"></li>
-            <li data-i18n="services.li3"></li>
-            <li data-i18n="services.li4"></li>
+          <li data-i18n="services.li1"></li>
+          <li data-i18n="services.li2"></li>
+          <li data-i18n="services.li3"></li>
+          <li data-i18n="services.li4"></li>
         </ul>
         <p data-i18n="services.footer"></p>
-    </section>
-
-    <section class="card" id="contact">
+      </section>
+      <section class="card" id="contact">
         <h2 data-i18n="contact.title"></h2>
         <div class="contact-badges">
-            <a href="https://github.com/DooubleTap" target="_blank">
-                <img src="https://img.shields.io/badge/github-profile-blue?logo=github">
-            </a>
-            <a href="https://discord.com/users/76182535192715264" target="_blank">
-                <img src="https://img.shields.io/badge/discord-account-green?logo=discord">
-            </a>
-            <a href="mailto:seblemery@gmail.com">
-                <img src="https://img.shields.io/badge/gmail-@-red?logo=gmail">
-            </a>
+          <a href="https://github.com/DooubleTap" target="_blank">
+            <img src="https://img.shields.io/badge/github-profile-blue?logo=github">
+          </a>
+          <a href="https://discord.com/users/76182535192715264" target="_blank">
+            <img src="https://img.shields.io/badge/discord-account-green?logo=discord">
+          </a>
+          <a href="mailto:seblemery@gmail.com">
+            <img src="https://img.shields.io/badge/gmail-@-red?logo=gmail">
+          </a>
         </div>
-    </section>
-
-    <div class="github-badges" id="skills">
+      </section>
+      <div class="github-badges" id="skills">
         <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" alt="CSS">
         <img src="https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white" alt="HTML">
         <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" alt="JS">
@@ -291,70 +281,77 @@ footer {
         <img src="https://img.shields.io/badge/Docusaurus-3ECC5F?logo=docusaurus&logoColor=fff">
         <img src="https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white">
         <img src="https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white">
-    </div>
-</main>
-
-<footer data-i18n="footer"></footer>
-
-<script>
-const locales = {
-    fr: {
-        nav: { about: "À propos", services: "Services", contact: "Contact", skills: "Compétences" },
-        about: {
+      </div>
+    </main>
+    <footer data-i18n="footer"></footer>
+    <script>
+      const locales = {
+        fr: {
+          nav: {
+            about: "À propos",
+            services: "Services",
+            contact: "Contact",
+            skills: "Compétences"
+          },
+          about: {
             title: "👋 À propos de moi",
             p1: "Je suis DooubleTap, développeur canadien-français né en 1984. Bilingue, je me concentre sur l’architecture propre, la performance et la maintenabilité. J’accompagne des communautés FiveM, de la configuration Discord à l’intégration d’API et à la maintenance de scripts fiables et durables."
-        },
-        services: {
+          },
+          services: {
             title: "💼 Services offerts",
             li1: "Mise en place backend & frontend, hébergement, domaines et bases de données",
             li2: "Création et maintenance de communautés FiveM / RedM",
             li3: "Bots Discord, intégration Tebex et top-serveurs.net",
             li4: "Tarification selon vos besoins",
             footer: "Disponible pour collaborer sur des projets sérieux."
+          },
+          contact: {
+            title: "🔗 Me contacter"
+          },
+          footer: "© 2013-2026 DooubleTap • Monté avec du café & du code propre ☕"
         },
-        contact: { title: "🔗 Me contacter" },
-        footer: "© 2013-2026 DooubleTap • Monté avec du café & du code propre ☕"
-    },
-
-    en: {
-        nav: { about: "About", services: "Services", contact: "Contact", skills: "Skills" },
-        about: {
+        en: {
+          nav: {
+            about: "About",
+            services: "Services",
+            contact: "Contact",
+            skills: "Skills"
+          },
+          about: {
             title: "👋 About Me",
             p1: "I’m DooubleTap, a French-Canadian developer born in 1984, focused on clean architecture, performance and maintainability. I help FiveM communities with Discord setup, API integrations and long-term script maintenance."
-        },
-        services: {
+          },
+          services: {
             title: "💼 Services I Offer",
             li1: "Backend & frontend setup, hosting, domains and databases",
             li2: "FiveM / RedM community setup and maintenance",
             li3: "Discord bots, Tebex and top-serveurs.net integration",
             li4: "Pricing depends on your needs",
             footer: "Available for collaboration on serious projects."
-        },
-        contact: { title: "🔗 Contact Me" },
-        footer: "© 2013-2026 DooubleTap • Built with coffee & clean code ☕"
-    }
-};
+          },
+          contact: {
+            title: "🔗 Contact Me"
+          },
+          footer: "© 2013-2026 DooubleTap • Built with coffee & clean code ☕"
+        }
+      };
+      let currentLang = "fr";
 
-let currentLang = "fr";
-
-function applyLang(lang) {
-    document.documentElement.lang = lang;
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const keys = el.dataset.i18n.split(".");
-        let value = locales[lang];
-        keys.forEach(k => value = value[k]);
-        el.textContent = value;
-    });
-    document.getElementById("langToggle").textContent = lang === "fr" ? "EN" : "FR";
-}
-
-document.getElementById("langToggle").onclick = () => {
-    currentLang = currentLang === "fr" ? "en" : "fr";
-    applyLang(currentLang);
-};
-
-applyLang(currentLang);
-</script>
-
-</body>
+      function applyLang(lang) {
+        document.documentElement.lang = lang;
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const keys = el.dataset.i18n.split(".");
+          let value = locales[lang];
+          keys.forEach(k => value = value[k]);
+          el.textContent = value;
+        });
+        document.getElementById("langToggle").textContent = lang === "fr" ? "EN" : "FR";
+      }
+      document.getElementById("langToggle").onclick = () => {
+        currentLang = currentLang === "fr" ? "en" : "fr";
+        applyLang(currentLang);
+      };
+      applyLang(currentLang);
+    </script>
+  </body>
 </html>
