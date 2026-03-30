@@ -346,7 +346,7 @@
           keys.forEach(k => value = value[k]);
           el.textContent = value;
         });
-        document.getElementById("langToggle").textContent = lang === "en" ? "EN" : "FR";
+        document.getElementById("langToggle").textContent = lang === "en" ? "FR" : "EN";
       }
       document.getElementById("langToggle").onclick = () => {
         currentLang = currentLang === "en" ? "en" : "fr";
