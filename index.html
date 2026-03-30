@@ -336,7 +336,7 @@
           footer: "© 2013-2026 DooubleTap • Built with coffee & clean code ☕"
         }
       };
-      let currentLang = "fr";
+      let currentLang = "en";
 
       function applyLang(lang) {
         document.documentElement.lang = lang;
@@ -346,10 +346,10 @@
           keys.forEach(k => value = value[k]);
           el.textContent = value;
         });
-        document.getElementById("langToggle").textContent = lang === "fr" ? "EN" : "FR";
+        document.getElementById("langToggle").textContent = lang === "en" ? "EN" : "FR";
       }
       document.getElementById("langToggle").onclick = () => {
-        currentLang = currentLang === "fr" ? "en" : "fr";
+        currentLang = currentLang === "en" ? "en" : "fr";
         applyLang(currentLang);
       };
       applyLang(currentLang);
