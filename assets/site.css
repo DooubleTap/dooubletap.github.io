@@ -2,6 +2,7 @@
    dooubletap.github.io — shared stylesheet
    Dark by default, light on request. Three neon accents with fixed jobs:
      orange = game servers (FiveM / RedM / Lua) and AI
+   (plus Twitch purple, only on things that are about Twitch)
      green  = web & Discord bots
      blue   = infrastructure, tools & IRC
    =========================================================================== */
@@ -20,6 +21,7 @@
   --orange:#ff8a3d;
   --green:#3dffa2;
   --blue:#43b8ff;
+  --purple:#b27dff;          /* Twitch only */
   --o-soft:rgba(255,138,61,.14);
   --g-soft:rgba(61,255,162,.12);
   --b-soft:rgba(67,184,255,.13);
@@ -48,6 +50,7 @@
   --orange:#b54708;
   --green:#047a4a;
   --blue:#0565a6;
+  --purple:#7b2fe0;
   --o-soft:rgba(234,106,20,.1);
   --g-soft:rgba(5,160,95,.1);
   --b-soft:rgba(10,120,200,.1);
@@ -167,6 +170,8 @@ nav.links a:hover,nav.links a[aria-current=page],nav.links a.active{color:var(--
 .orbit .s2 .chip{--rad:calc(min(440px,100vw - 48px) * .5)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .c-o{--c:var(--orange)} .c-g{--c:var(--green)} .c-b{--c:var(--blue)}
+.c-p{--c:var(--purple)} /* Twitch keeps its own purple */
+.tw{color:var(--purple)}
 
 /* ---------- facts strip ---------- */
 .facts{border-bottom:1px solid var(--border);background:var(--bg2)}
