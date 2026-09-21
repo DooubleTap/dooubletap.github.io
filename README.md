@@ -23,6 +23,7 @@ the notice was closed.
 | — | `assets/icons.svg` | Icon sprite: [Simple Icons](https://simpleicons.org/) (CC0) + a few custom glyphs |
 | — | `assets/github-data.js` | GitHub snapshot, generated. Don't edit by hand |
 | — | `tools/update-github.py` | Regenerates the snapshot |
+| — | `tools/version-assets.py` | Stamps asset URLs with `?v=<hash>` so browsers never show a stale copy |
 
 ## Refresh the GitHub numbers
 
@@ -32,7 +33,13 @@ python tools/update-github.py
 GITHUB_TOKEN=ghp_xxx python tools/update-github.py
 ```
 
-Standard library only. Commit the new `assets/github-data.js` and push.
+Standard library only. Then run `python tools/version-assets.py`, commit and push.
+
+## After changing anything in `assets/`
+
+Run `python tools/version-assets.py` before committing. GitHub Pages lets browsers cache
+files for 10 minutes; the version stamp gives changed files a new URL so visitors get them
+right away.
 
 ## Translating
 
