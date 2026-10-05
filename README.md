@@ -57,5 +57,5 @@ python -m http.server 8000
 
 ## Licence
 
-Code under the [MIT licence](LICENSE.md). Text and avatar © DooubleTap. Brand logos belong to
+Code under the [MIT licence](LICENSE.md). Text and avatar © Seb (DooubleTap). Brand logos belong to
 their owners.
