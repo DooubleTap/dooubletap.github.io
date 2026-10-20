@@ -107,8 +107,8 @@ if('IntersectionObserver' in window){
 var typed = $('#typed');
 if(typed){
   var roles = {
-    fr:['scripts FiveM & RedM', 'bots Discord', 'bots de chat Twitch', 'scripts IRC & eggdrop', 'sites web bilingues', 'code avec Claude Code'],
-    en:['FiveM & RedM scripts', 'Discord bots', 'Twitch chat bots', 'IRC & eggdrop scripts', 'bilingual websites', 'code with Claude Code']
+    fr:['jobsite.im', 'logiciels SaaS', 'le bot Discord Kron', 'applis web bilingues', 'code avec Claude Code'],
+    en:['jobsite.im', 'SaaS software', 'the Kron Discord bot', 'bilingual web apps', 'code with Claude Code']
   };
   var ri = 0, ci = 0, del = false, timer;
   var tick = function(){

@@ -230,6 +230,31 @@ h3{font-size:18px;letter-spacing:-.2px;line-height:1.3}
 .proj.big .side .mini{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
 .mini b{display:block;font:700 13px var(--mono);color:var(--text)}
 .mini span{font-size:13px;color:var(--muted)}
+.proj.flagship{border-color:color-mix(in srgb,var(--green) 40%,var(--border))}
+.proj.flagship h3{font-size:30px}
+.proj.big .side .board{grid-column:1/-1}
+.board{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;font:12.5px var(--mono)}
+.board .bar{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;color:var(--faint);border-bottom:1px solid var(--border)}
+.board .bar b{color:var(--text)}
+.board .row{display:grid;grid-template-columns:62px 1fr 48px 82px;gap:8px;align-items:center;padding:8px 14px;color:var(--muted)}
+.board .row+.row{border-top:1px solid var(--border)}
+.board .u{color:var(--faint)}
+.board .n{color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.board .ok{color:var(--green);font-weight:700}
+.board .wait{color:var(--faint)}
+.board .st{justify-self:end;font-size:11px;padding:2px 8px;border-radius:6px;background:var(--panel2);border:1px solid var(--border)}
+.board .st.w{background:var(--g-soft);color:var(--green)}
+.board .st.d{background:var(--o-soft);color:var(--orange)}
+.board .st.o{background:var(--b-soft);color:var(--blue)}
+.proj.wide{grid-column:span 2}
+.mods{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.mods li{font:600 11.5px var(--mono);padding:3px 8px;border-radius:6px;color:var(--c);background:color-mix(in srgb,var(--c) 10%,transparent)}
+.sub-head{margin:64px 0 24px;max-width:760px}
+.sub-head h3{font-size:20px}
+.sub-head p{color:var(--muted);margin-top:6px}
+.past .card{padding:20px}
+.past .card p{font-size:13.5px}
+.past .proj .badge-ico{width:36px;height:36px;font-size:18px}
 .star-note{display:inline-flex;align-items:center;gap:5px;color:var(--orange);font:700 12.5px var(--mono)}
 
 /* stack */
@@ -424,6 +449,9 @@ footer.site .sig .o{color:var(--orange)} footer.site .sig .g{color:var(--green)}
   .fact:nth-child(odd){border-right:1px solid var(--border)}
   .work,.g3,.g2,.g4,.contact-grid,.repo-list{grid-template-columns:1fr}
   .proj.big .side{grid-template-columns:1fr}
+  .proj.wide{grid-column:auto}
+  .board .row{grid-template-columns:56px 1fr 74px}
+  .board .t{display:none}
   .proj.big{padding:22px}
   .bars li{grid-template-columns:96px 1fr 26px}
   .year .tot{font-size:9.5px}
