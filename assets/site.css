@@ -259,6 +259,7 @@ h3{font-size:18px;letter-spacing:-.2px;line-height:1.3}
 
 /* stack */
 .stack-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.stack-group.wide{grid-column:1/-1}
 .stack-group h3{display:flex;align-items:center;gap:10px}
 .stack-group h3 .dot{width:10px;height:10px;border-radius:3px;background:var(--c);box-shadow:0 0 10px var(--c)}
 :root[data-theme=light] .stack-group h3 .dot{box-shadow:none}

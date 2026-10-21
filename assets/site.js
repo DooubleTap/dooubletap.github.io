@@ -14,7 +14,7 @@ var store = {
 function $(s, c){ return (c || document).querySelector(s); }
 function $$(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
 function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-var ICONS_V = 'db9d3691';  /* set by tools/version-assets.py */
+var ICONS_V = '6f0d8c25';  /* set by tools/version-assets.py */
 function icon(name){ return '<svg class="i" aria-hidden="true"><use href="' + BASE + 'icons.svg?v=' + ICONS_V + '#i-' + name + '"></use></svg>'; }
 function lang(){ return root.lang === 'en' ? 'en' : 'fr'; }
 function t(fr, en){ return lang() === 'en' ? en : fr; }
